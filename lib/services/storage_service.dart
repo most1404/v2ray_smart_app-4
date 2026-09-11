@@ -48,9 +48,9 @@ class StorageService {
     if (raw == null) return AppSettings();
 
     try {
-      final map = jsonDecode(raw);
-      if (map is! Map) throw const FormatException();
-      return AppSettings.fromJson(Map<String, dynamic>.from(map));
+      final decoded = jsonDecode(raw);
+      if (decoded is! Map<String, dynamic>) throw const FormatException();
+      return AppSettings.fromJson(decoded);
     } catch (_) {
       return AppSettings();
     }
@@ -64,11 +64,13 @@ class StorageService {
     if (raw == null) return [];
 
     try {
-      final value = jsonDecode(raw);
-      if (value is! List) throw const FormatException();
-      return value
-          .whereType<Map>()
-          .map((e) => VpnConfig.fromJson(Map<String, dynamic>.from(e)))
+      final decoded = jsonDecode(raw);
+      if (decoded is! List) throw const FormatException();
+      return decoded
+          .whereType<Map<Object?, Object?>>()
+          .map((item) => VpnConfig.fromJson(
+                Map<String, dynamic>.from(item),
+              ))
           .where((e) => e.id.isNotEmpty && e.rawLink.isNotEmpty)
           .toList();
     } catch (_) {
@@ -84,11 +86,13 @@ class StorageService {
     if (raw == null) return [];
 
     try {
-      final value = jsonDecode(raw);
-      if (value is! List) throw const FormatException();
-      return value
-          .whereType<Map>()
-          .map((e) => Subscription.fromJson(Map<String, dynamic>.from(e)))
+      final decoded = jsonDecode(raw);
+      if (decoded is! List) throw const FormatException();
+      return decoded
+          .whereType<Map<Object?, Object?>>()
+          .map((item) => Subscription.fromJson(
+                Map<String, dynamic>.from(item),
+              ))
           .where((e) => e.url.isNotEmpty)
           .toList();
     } catch (_) {
