@@ -30,7 +30,7 @@ class HomeScreen extends StatelessWidget {
             icon: const Icon(Icons.terminal_rounded),
             onPressed: () => Navigator.push(
               context,
-              MaterialPageRoute(
+              MaterialPageRoute<void>(
                 builder: (_) => LogsScreen(engine: app.engine),
               ),
             ),
@@ -39,7 +39,7 @@ class HomeScreen extends StatelessWidget {
             icon: const Icon(Icons.link_rounded),
             onPressed: () => Navigator.push(
               context,
-              MaterialPageRoute(
+              MaterialPageRoute<void>(
                 builder: (_) => const SubscriptionsScreen(),
               ),
             ),
@@ -48,7 +48,7 @@ class HomeScreen extends StatelessWidget {
             icon: const Icon(Icons.settings_outlined),
             onPressed: () => Navigator.push(
               context,
-              MaterialPageRoute(
+              MaterialPageRoute<void>(
                 builder: (_) => const SettingsScreen(),
               ),
             ),
@@ -172,7 +172,7 @@ class _ServerPreview extends StatelessWidget {
             trailing: TextButton(
               onPressed: () => Navigator.push(
                 context,
-                MaterialPageRoute(
+                MaterialPageRoute<void>(
                   builder: (_) => const ServersScreen(),
                 ),
               ),
