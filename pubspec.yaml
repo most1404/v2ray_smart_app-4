@@ -1,0 +1,25 @@
+name: sinereh_vpn
+description: Production-oriented Flutter Android VPN client using flutter_v2ray_client.
+publish_to: none
+version: 3.0.0+1
+
+environment:
+  sdk: ">=3.1.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  provider: ^6.1.5+1
+  flutter_v2ray_client: ^3.4.1
+  http: ^1.5.0
+  flutter_secure_storage: ^9.2.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/logo.png
